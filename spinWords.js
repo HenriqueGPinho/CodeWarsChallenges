@@ -9,16 +9,24 @@ another test" )=> returns "This is rehtona test"*/
 
 function spinWords(phrase) {
   const words = phrase.split(' ');
+  const spinnedPhrase = [];
   
-  console.log(words);
-  
-  words.map(word => {
-    console.log(word);
+  words.map(word => {  
+    let spinnedWord = [];
     if (word.length >= 5) {
       const splitWord = word.split('');
-      console.log(splitWord);
+
+      for (var i = 0; i <= word.length; i++) {
+        spinnedWord[i] = splitWord[word.length - i];
+      }
+
+    } else {
+        spinnedPhrase.push(word);
     }
+      spinnedPhrase.push(spinnedWord.join(''));
   });
+
+  console.log(spinnedPhrase.join(' '));
 }
 
-spinWords("programming is awesome");
+spinWords("programming is very awesome");
