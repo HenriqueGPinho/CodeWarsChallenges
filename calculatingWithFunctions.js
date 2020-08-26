@@ -18,7 +18,7 @@ Divison should be integer division. For example, this should return 2, not
 2.666666...:
 eight(dividedBy(three()));*/
 
-function zero(operation) {
+/*function zero(operation) {
   if (operation) {
     const calc = operation.split(' ');
     switch (calc[0]) {
@@ -140,7 +140,23 @@ function times(number) {
 }
 function dividedBy(number) {
   return `/ ${number}`;
-}
+}*/
+
+function zero(operation) {}
+function one(operation) {}
+function two(operation) {}
+function three(operation) { return operation ? operation(3) : 3 }
+function four(operation) {}
+function five(operation) {}
+function six(operation) {}
+function seven(operation) {}
+function eight(operation) { return operation ? operation(8) : 8 }
+function nine(operation) {}
+
+function plus(right) { return left => { return left + right } }
+function minus(right) { return left => { return left - right } }
+function times(right) { return left => { return left * right } }
+function dividedBy(right) { return left => { return parseInt(left / right) } }
 
 console.log(eight(plus(three())));
 console.log(eight(minus(three())));
