@@ -10,28 +10,18 @@ Examples
 */
 
 function validParentheses(parens){
-  const pArray = parens.split('');
   let balance = 0;
-  let unbalanced = false;
+
+  for (let i = 0; i < parens.length; i++) {
+    if (parens[i] == '(') balance ++;
+    if (parens[i] == ')') balance --;
   
-  if (pArray.length == 0) return true;
-  // according to the tests, it seems the function has to return true when 
-  // there isn't parameters being given, but it isn't mentioned
-
-  pArray.map(paren => {
-    if (paren == '(') balance ++;
-    if (paren == ')') balance --;
-
-    if (balance <= -1) unbalanced = true;
+    if (balance <= -1) return false;
     // if balance reaches -1, it means there is some ) without a correspondent (
     // before it
-  });
-
-  if (pArray[0] == '(' 
-    && pArray[pArray.length - 1] == ')' 
-    && balance == 0
-    && !unbalanced) return true;
-  else return false;
+  }
+  
+  return balance == 0;
 }
 
 console.log(validParentheses('())(()'));
